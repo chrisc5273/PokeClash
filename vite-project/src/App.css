@@ -5,15 +5,16 @@
   text-align: center;
 }
 
-.userText{
+.userText {
   color: black;
   width: 30vh;
   text-align: center;
   height: 4vh;
- font-size: 24px; 
- border-radius: 40px;
+  font-size: 24px;
+  border-radius: 40px;
 }
-.userNameForm{
+
+.userNameForm {
   width: 40vh;
   height: 40vh;
   background-color: bisque;
@@ -22,4 +23,169 @@
   flex-direction: column;
   align-items: center;
   border-radius: 40px;
+}
+
+/*This is the container for the viewPokemon component that holds all the pokemon and their stats*/
+.pokemons {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  background-color: rgb(164, 120, 120);
+  column-gap: 4px;
+}
+
+.pokemonCard {
+  border: solid 4px rgb(0, 0, 0);
+  background-color: orange;
+  border-radius: 8px;
+  width: 10rem;
+  height: 12rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+}
+
+.pokemonCard:hover {
+  animation: lightning 1.5s infinite;
+  z-index: 10;
+}
+
+.pokemonDetailCard {
+  background-image: url(./images/background-image-poke.jpg);
+  background-size: contain;
+  width: 400px;
+  padding: 2rem;
+  height: 90vh;
+  border-radius: 10px;
+  /* allow corners to overflow */
+  z-index: 1;
+}
+
+/* Corner boxes outside the card */
+.corner {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(rgb(255, 136, 0), yellow);
+  box-shadow: 0 0 0 2px black;
+  /* border effect */
+  z-index: 10;
+  transform: rotate(45deg);
+  border-radius: 15px;
+}
+
+/* Position each one just outside */
+.top-left {
+  top: -5px;
+  left: -1px;
+}
+
+.top-right {
+  top: -5px;
+  right: -1px;
+}
+
+.bottom-left {
+  bottom: -5px;
+  left: -1px;
+}
+
+.bottom-right {
+  bottom: -5px;
+  right: -1px;
+}
+
+
+.pokeImage {
+  position: relative;
+  background-color: hsl(39, 95%, 68%);
+  border: double black 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  /* Keep this size */
+  border-radius: 5px;
+  margin: 25px auto 20px auto;
+  overflow: visible;
+  /* Allow image to go outside */
+}
+
+
+
+.section1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  color: white;
+  background-color:hsl(39, 95%, 68%);
+  width:auto ;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: left;
+  font-size: 16px;
+
+  /* keep both columns aligned at the top */
+}
+
+.abilities {
+  margin: -2rem 0 0 3rem;
+}
+
+.abilities ul li:not(:last-child) {
+  margin-top: -.5rem;
+  margin-bottom: 17px;
+}
+
+
+@keyframes lightning {
+
+  0%,
+  50%,
+  100% {
+    box-shadow: 0 0 5px red;
+    border: double red 3px;
+    transform: scale(1.15);
+  }
+
+  25% {
+    box-shadow: 0 0 15px red;
+
+  }
+
+  75% {
+    box-shadow: 0 0 15px red, 0 0 50px red;
+
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**change the class name below later*/
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #ffcc00;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  background-color: #ffaa00;
 }
